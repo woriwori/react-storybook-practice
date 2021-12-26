@@ -1,11 +1,8 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 import { PureInboxScreen } from './InboxScreen';
-import TaskStore from '../redux/store.stories';
 
 export default {
     component: PureInboxScreen,
-    decorators: [story => <Provider store={TaskStore}>{story()}</Provider>],
     title: 'InboxScreen',
 };
 

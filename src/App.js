@@ -1,12 +1,19 @@
 import React from 'react'
-import { Provider } from 'react-redux';
-import store from './redux/redux'
 import InboxScreen from './components/InboxScreen';
+import TaskContext from './context/TaskContext'
+
+// initial state
+const defaultTasks = [
+    { id: '1', title: 'Something', state: 'TASK_INBOX' },
+    { id: '2', title: 'Something more', state: 'TASK_INBOX' },
+    { id: '3', title: 'Something else', state: 'TASK_INBOX' },
+    { id: '4', title: 'Something again', state: 'TASK_INBOX' },
+];
 
 const App = () => (
-    <Provider store={store}>
+    <TaskContext.Provider value={{tasks: defaultTasks}}>
         <InboxScreen />
-    </Provider>
+    </TaskContext.Provider>
 )
 
 export default App;

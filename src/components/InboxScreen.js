@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 import TaskList from './TaskList';
 
@@ -38,4 +37,4 @@ PureInboxScreen.defaultProps = {
     error: null,
 };
 
-export default connect(({ error }) => ({ error }))(PureInboxScreen);
+export default PureInboxScreen;
