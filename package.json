@@ -1,5 +1,5 @@
 {
-  "name": "taskbox",
+  "name": "storybook",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -53,9 +53,9 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.4.9",
-    "@storybook/addon-essentials": "^6.4.9",
+    "@storybook/addon-essentials": "^6.1.21",
     "@storybook/addon-links": "^6.4.9",
-    "@storybook/addon-storyshots": "^6.4.9",
+    "@storybook/addon-storyshots": "^6.1.21",
     "@storybook/builder-webpack5": "^6.4.9",
     "@storybook/manager-webpack5": "^6.4.9",
     "@storybook/node-logger": "^6.4.9",
