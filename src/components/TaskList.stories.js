@@ -9,13 +9,14 @@ export default {
     title: 'TaskList',
 };
 
-const Template = args => <TaskContext.Provider {...args}><TaskList /></TaskContext.Provider>;
+const Template = args => <TaskContext.Provider value={args.value}><TaskList {...args.params}/></TaskContext.Provider>;
 
 export const Default = Template.bind({});
 Default.args = {
     value: {
         tasks: defaultTasks
-    }
+    },
+    params: {}
 };
 
 export const WithPinnedTasks = Template.bind({});
@@ -25,19 +26,26 @@ WithPinnedTasks.args = {
             ...defaultTasks,
             { id: '6', title: 'Task 6 (pinned)', state: 'TASK_PINNED' }
         ]
-    }
+    },
+    params: {}
 };
 
 export const Loading = Template.bind({});
 Loading.args = {
-    tasks: [],
-    loading: true,
+    value: {
+        tasks: []
+    },
+    params: {
+        loading: true
+    }
 };
 
 export const Empty = Template.bind({});
 Empty.args = {
-    // Shaping the stories through args composition.
-    // Inherited data coming from the Loading story.
-    ...Loading.args,
-    loading: false,
+    value: {
+        tasks: []
+    },
+    params: {
+        loading: false
+    }
 };
