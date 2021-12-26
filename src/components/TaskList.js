@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { archiveTask, pinTask } from '../redux/redux'
 import Task from './Task';
+import TaskContext from "../context/TaskContext";
 
-export const TaskList = ({ loading = false, tasks = [], onPinTask, onArchiveTask }) => {
+export const TaskList = ({ loading = false, onPinTask, onArchiveTask }) => {
+    const {tasks} = useContext(TaskContext);
+
     const events = {
         onPinTask,
         onArchiveTask,
@@ -57,20 +58,10 @@ export const TaskList = ({ loading = false, tasks = [], onPinTask, onArchiveTask
 TaskList.propTypes = {
     /** Checks if it's in loading state */
     loading: PropTypes.bool,
-    /** The list of tasks */
-    tasks: PropTypes.arrayOf(Task.propTypes.task).isRequired,
     /** Event to change the task to pinned */
     onPinTask: PropTypes.func,
     /** Event to change the task to archived */
     onArchiveTask: PropTypes.func,
 };
 
-export default connect(
-    ({ tasks }) => ({
-        tasks: tasks.filter(t => t.state === 'TASK_INBOX' || t.state === 'TASK_PINNED'),
-    }),
-    dispatch => ({
-        onArchiveTask: id => dispatch(archiveTask(id)),
-        onPinTask: id => dispatch(pinTask(id)),
-    })
-)(TaskList);
+export default TaskList;

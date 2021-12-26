@@ -1,12 +1,13 @@
 import React from 'react'
-import { Provider } from 'react-redux';
-import store from './redux/redux'
 import InboxScreen from './components/InboxScreen';
+import TaskContext from './context/TaskContext'
+import {defaultTasks} from './mock/tasks'
+
 
 const App = () => (
-    <Provider store={store}>
+    <TaskContext.Provider value={{tasks: defaultTasks}}>
         <InboxScreen />
-    </Provider>
+    </TaskContext.Provider>
 )
 
 export default App;
