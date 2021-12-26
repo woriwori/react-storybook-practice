@@ -13,6 +13,7 @@ const Task = ({ task: { id, title, state }, onArchiveTask, onPinTask }) => {
                 />
                 <span className="checkbox-custom" onClick={() => onArchiveTask(id)} />
             </label>
+            <h1>est</h1>
             <div className="title">
                 <input type="text" value={title} readOnly={true} placeholder="Input title" />
             </div>
