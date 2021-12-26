@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Task from './Task';
 
-const TaskList = ({ loading, tasks, onPinTask, onArchiveTask }) => {
+const TaskList = ({ loading = false, tasks, onPinTask, onArchiveTask }) => {
     const events = {
         onPinTask,
         onArchiveTask,
@@ -51,5 +52,16 @@ const TaskList = ({ loading, tasks, onPinTask, onArchiveTask }) => {
         </div>
     );
 }
+
+TaskList.propTypes = {
+    /** Checks if it's in loading state */
+    loading: PropTypes.bool,
+    /** The list of tasks */
+    tasks: PropTypes.arrayOf(Task.propTypes.task).isRequired,
+    /** Event to change the task to pinned */
+    onPinTask: PropTypes.func,
+    /** Event to change the task to archived */
+    onArchiveTask: PropTypes.func,
+};
 
 export default TaskList;
