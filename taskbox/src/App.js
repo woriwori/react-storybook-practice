@@ -1,6 +1,12 @@
 import React from 'react'
-import Task from './components/Task'
+import { Provider } from 'react-redux';
+import store from './redux/redux'
+import InboxScreen from './components/InboxScreen';
 
-const App = () => <Task></Task>
+const App = () => (
+    <Provider store={store}>
+        <InboxScreen />
+    </Provider>
+)
 
 export default App;
